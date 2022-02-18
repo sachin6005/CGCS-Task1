@@ -24,3 +24,7 @@ jobs:
         pip install flask
         pip install flask_mongoengine
         pip install healthcheck
+    - name: Test with pytest
+      run: |
+        pytest        
+   
