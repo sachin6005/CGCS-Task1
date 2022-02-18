@@ -1,9 +1,13 @@
-import json
 from pyexpat import model
 from flask import Flask, request, jsonify
 from flask_mongoengine import MongoEngine
+import json
+from healthcheck import HealthCheck
 
 app = Flask(__name__)
+
+health = HealthCheck()
+
 app.config['MONGODB_SETTINGS'] = {
     'db': 'MyTask-2',
     'host': 'localhost',
@@ -110,6 +114,8 @@ def delete_car(id):
     else:
         car.delete()
     return jsonify(car.to_json())
+
+app.add_url_rule('/healthcheck', 'healthcheck', view_func=lambda: health.run())
 
 if __name__ == "__main__":
     app.run(debug=True)
