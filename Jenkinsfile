@@ -3,15 +3,15 @@ pipeline {
     environment {
         DOCKER_HUB_REPO = "merugune8sachin/flask-docker-app"
         CONTAINER_NAME = "flask-container"
-        STUB_VALUE = "200"
+//         STUB_VALUE = "200"
     }
     stages {
-        stage('Stubs-Replacement'){
-            steps {
-                // 'STUB_VALUE' Environment Variable declared in Jenkins Configuration 
-                echo "STUB_VALUE = ${STUB_VALUE}"
-                sh "sed -i 's/<STUB_VALUE>/$STUB_VALUE/g' config.py"
-                sh 'cat config.py'
+//         stage('Stubs-Replacement'){
+//             steps {
+//                 // 'STUB_VALUE' Environment Variable declared in Jenkins Configuration 
+//                 echo "STUB_VALUE = ${STUB_VALUE}"
+//                 sh "sed -i 's/<STUB_VALUE>/$STUB_VALUE/g' config.py"
+//                 sh 'cat config.py'
             }
         }
         stage('Build') {
