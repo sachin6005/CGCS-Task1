@@ -8,6 +8,8 @@ app = Flask(__name__)
 
 health = HealthCheck()
 
+
+
 app.config['MONGODB_SETTINGS'] = {
     'db': 'MyTask-2',
     'host': 'localhost',
